@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Example" Id="{82cea44b-8501-4378-8f54-eecadad1c776}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Example
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[GVL.bLamp_1 := GVL.bButton_1 AND GVL.bSwitch_1;
+GVL.bLamp_2 := GVL.bButton_2 AND NOT GVL.bSwitch_2;
+GVL.bLamp_3 := GVL.bButton_3 OR GVL.bSwitch_3;
+GVL.bLamp_4 := GVL.bButton_4 OR NOT GVL.bSwitch_4;
+GVL.bLamp_5 := GVL.bButton_5 OR GVL.bSwitch_5;
+GVL.bLamp_6 := GVL.bButton_6 OR GVL.bSwitch_6;
+GVL.bLamp_7 := GVL.bButton_7 OR GVL.bSwitch_7;
+GVL.bLamp_8 := GVL.bButton_8 OR GVL.bSwitch_8;
+
+GVL.fMeter_1 := GVL.fPotentiometer_1 * 1200 / 10 - 200; // -200 - 1000 range
+GVL.fMeter_2 := GVL.fPotentiometer_2 * 100 / 10; // 0 - 100 range]]></ST>
+    </Implementation>
+    <LineIds Name="Example">
+      <LineId Id="6" Count="9" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

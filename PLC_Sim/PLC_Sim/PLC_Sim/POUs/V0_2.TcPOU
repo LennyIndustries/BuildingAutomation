@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="V0_2" Id="{b6d42e48-56aa-49b2-8505-3dcae3a33928}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM V0_2
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*
+	Als S01=1 en S02=0 moet Q01 branden
+	Als S01=0 en S02=1 moet Q02 branden
+	Als S01=0 en S02=0 moet Q01 en Q02 branden
+	Als S01=1 en S02=1 moet Q01 en Q02 niet branden
+	
+	S1	S2	Q1	Q2
+	0	0	1	1
+	0	1	0	1
+	1	0	1	0
+	1	1	0	0
+*)
+
+GVL.bLamp_1 := (NOT GVL.bSwitch_2);
+GVL.bLamp_2 := (NOT GVL.bSwitch_1);]]></ST>
+    </Implementation>
+    <LineIds Name="V0_2">
+      <LineId Id="5" Count="0" />
+      <LineId Id="8" Count="2" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="15" Count="5" />
+      <LineId Id="6" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="14" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

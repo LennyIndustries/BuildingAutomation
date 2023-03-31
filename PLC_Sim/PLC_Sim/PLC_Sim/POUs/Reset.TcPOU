@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Reset" Id="{ca5f4141-50b8-4c79-b0d5-f79acafe4044}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Reset
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Inputs
+// Buttons
+GVL.bButton_1 := FALSE;
+GVL.bButton_2 := FALSE;
+GVL.bButton_3 := FALSE;
+GVL.bButton_4 := FALSE;
+GVL.bButton_5 := FALSE;
+GVL.bButton_6 := FALSE;
+GVL.bButton_7 := FALSE;
+GVL.bButton_8 := FALSE;
+// Switches
+GVL.bSwitch_1 := FALSE;
+GVL.bSwitch_2 := FALSE;
+GVL.bSwitch_3 := FALSE;
+GVL.bSwitch_4 := FALSE;
+GVL.bSwitch_5 := FALSE;
+GVL.bSwitch_6 := FALSE;
+GVL.bSwitch_7 := FALSE;
+GVL.bSwitch_8 := FALSE;
+// Potentiometer
+GVL.fPotentiometer_1 := 0;
+GVL.fPotentiometer_2 := 0;
+
+// Outputs
+// Lamps
+GVL.bLamp_1 := FALSE;
+GVL.bLamp_2 := FALSE;
+GVL.bLamp_3 := FALSE;
+GVL.bLamp_4 := FALSE;
+GVL.bLamp_5 := FALSE;
+GVL.bLamp_6 := FALSE;
+GVL.bLamp_7 := FALSE;
+GVL.bLamp_8 := FALSE;
+// Meter
+GVL.fMeter_1 := 0;
+GVL.fMeter_2 := 0;
+
+// Running program ID
+//GVL.nProgramID := 0;]]></ST>
+    </Implementation>
+    <LineIds Name="Reset">
+      <LineId Id="6" Count="37" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

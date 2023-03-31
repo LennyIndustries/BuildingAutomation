@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="V0_3" Id="{199376a1-ae81-4963-890d-3b44fa29aa4b}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM V0_3
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*
+	De installatie zal pas werken als een hoofdschakelaar S01 AAN staat (maakcontact).
+	Als het niveau in het vat te hoog is, reageert detector S03.
+	Als de temperatuur boven een bepaalde waarde stijgt reageert thermostaat S04.
+	Als de druk boven een bepaalde waarde stijgt reageert druksensor S05.
+	Als één van de drie detectoren (S03, S04, S05) reageert moet een oranje lamp Q01 branden.
+	Als twee van de drie detectoren reageert moet een rode lamp Q02 branden.
+	Als de detectoren alle drie reageren moeten beide lampen branden en ook een bel Q03 rinkelen.
+	De bel blijft rinkelen tot de stopdrukknop S02 ingedrukt wordt (verbreekcontact).
+	
+	S1	S3	S4	S5	Q1	Q2	Q3
+	0	x	x	x	0	0	0
+	
+	1	1	0	0	1	0	0
+	1	0	1	0	1	0	0
+	1	0	0	1	1	0	0
+	
+	1	1	1	0	1	1	0
+	1	0	1	1	1	1	0
+	1	1	0	1	1	1	0
+	
+	1	1	1	1	1	1	1
+*)
+
+GVL.bLamp_1 := GVL.bSwitch_1 AND (GVL.bSwitch_2 OR GVL.bSwitch_3 OR GVL.bSwitch_4);
+GVL.bLamp_2 := GVL.bSwitch_1 AND ((GVL.bSwitch_2 AND GVL.bSwitch_3) OR (GVL.bSwitch_2 AND GVL.bSwitch_4) OR (GVL.bSwitch_3 AND GVL.bSwitch_4));
+GVL.bLamp_3 := GVL.bSwitch_1 AND GVL.bSwitch_2 AND GVL.bSwitch_3 AND GVL.bSwitch_4;
+	]]></ST>
+    </Implementation>
+    <LineIds Name="V0_3">
+      <LineId Id="5" Count="0" />
+      <LineId Id="8" Count="6" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="15" Count="2" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="18" Count="2" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="21" Count="2" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="6" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="32" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

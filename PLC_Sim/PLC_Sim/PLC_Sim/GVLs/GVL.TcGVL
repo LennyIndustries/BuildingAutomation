@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="GVL" Id="{ab7da90d-ef61-455b-b06b-e4a98b4ac11b}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	// Inputs
+	// Buttons
+	bButton_1 : BOOL;
+	bButton_2 : BOOL;
+	bButton_3 : BOOL;
+	bButton_4 : BOOL;
+	bButton_5 : BOOL;
+	bButton_6 : BOOL;
+	bButton_7 : BOOL;
+	bButton_8 : BOOL;
+	// Switches
+	bSwitch_1 : BOOL;
+	bSwitch_2 : BOOL;
+	bSwitch_3 : BOOL;
+	bSwitch_4 : BOOL;
+	bSwitch_5 : BOOL;
+	bSwitch_6 : BOOL;
+	bSwitch_7 : BOOL;
+	bSwitch_8 : BOOL;
+	// Potentiometer
+	fPotentiometer_1 : REAL;
+	fPotentiometer_2 : REAL;
+	
+	// Outputs
+	// Lamps
+	bLamp_1 : BOOL;
+	bLamp_2 : BOOL;
+	bLamp_3 : BOOL;
+	bLamp_4 : BOOL;
+	bLamp_5 : BOOL;
+	bLamp_6 : BOOL;
+	bLamp_7 : BOOL;
+	bLamp_8 : BOOL;
+	// Meter
+	fMeter_1 : REAL;
+	fMeter_2 : REAL;
+	
+	// Running program ID
+	nProgramID : UINT := 0;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
