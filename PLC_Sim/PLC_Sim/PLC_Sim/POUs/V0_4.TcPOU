@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="V0_4" Id="{089e5ee0-bf9c-4577-932c-a02e27c2214b}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM V0_4
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*
+	Opslagvat
+	
+	Een opslagvat heeft twee sensoren in de zijwand die een laag en hoog niveau aanduiden. Aan de hand van een PLC programma dient er
+	automatisch de klep bovenaan het vat geopend te worden als het vat leeg is. De tank wordt nu gevuld. Als de tank vol is
+	sluit de klep K1 eveneens automatisch. Onderaan de tank bevindt zich een pomp P1 die met een start- en stop-drukknop in- en
+	uitgeschakeld kan worden. 
+
+	Als de tank leeg gelopen is, stopt de pomp automatisch en opent de klep K1 bovenaan. De pomp kan niet ingeschakeld worden
+	zolang de tank gevuld wordt.
+	
+	L1	l2	S1	P1	K1
+	0	0	x	x	1
+	1	0	x	x	1
+	1	1	x	x	0
+	
+	x	x	0	0T	x
+	x	x	1	1T	x
+*)
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="V0_4">
+      <LineId Id="5" Count="0" />
+      <LineId Id="7" Count="1" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="12" Count="2" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="18" Count="1" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="20" Count="1" />
+      <LineId Id="23" Count="2" />
+      <LineId Id="6" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="16" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

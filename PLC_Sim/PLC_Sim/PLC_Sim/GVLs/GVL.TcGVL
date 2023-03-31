@@ -42,6 +42,9 @@ VAR_GLOBAL
 	
 	// Running program ID
 	nProgramID : UINT := 0;
+	
+	// I/O Setting
+	bUsePLC : bool := false;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

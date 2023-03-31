@@ -6,9 +6,21 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[GVL.bLamp_1 := GVL.bButton_1;]]></ST>
+      <ST><![CDATA[(*
+	Ja-functie
+	
+	Het meest eenvoudige dat men kan programmeren is de JA-functie. Bij de JA-functie volgt de uitgang de ingang.
+	Als de ingang logisch '1' is, is de uitgang logisch '1'. Als de ingang logisch '0' is, is de uitgang logisch '0'.
+*)
+
+GVL.bLamp_1 := GVL.bButton_1;]]></ST>
     </Implementation>
     <LineIds Name="V0_1">
+      <LineId Id="9" Count="0" />
+      <LineId Id="14" Count="1" />
+      <LineId Id="11" Count="1" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="13" Count="0" />
       <LineId Id="5" Count="0" />
     </LineIds>
   </POU>

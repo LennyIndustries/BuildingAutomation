@@ -3,10 +3,38 @@
   <POU Name="MAIN" Id="{802f884d-54f5-444a-9d44-2eadbfbf0423}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
+	nPreviusProgramID : UINT := 0;
+	
+	bButton_1_PLC AT %I* : BOOL;
+	bButton_2_PLC AT %I* : BOOL;
+	bButton_3_PLC AT %I* : BOOL;
+	bButton_4_PLC AT %I* : BOOL;
+	
+	bLamp_1_PLC AT %Q* : BOOL;
+	bLamp_2_PLC AT %Q* : BOOL;
+	bLamp_3_PLC AT %Q* : BOOL;
+	bLamp_4_PLC AT %Q* : BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[CASE GVL.nProgramID OF
+      <ST><![CDATA[IF nPreviusProgramID <> GVL.nProgramID THEN
+	nPreviusProgramID := GVL.nProgramID;
+	Reset();
+END_IF
+
+IF GVL.bUsePLC THEN
+	GVL.bButton_1 := bButton_1_PLC;
+	GVL.bButton_2 := bButton_2_PLC;
+	GVL.bButton_3 := bButton_3_PLC;
+	GVL.bButton_4 := bButton_4_PLC;
+	
+	bLamp_1_PLC := GVL.bLamp_1;
+	bLamp_2_PLC := GVL.bLamp_2;
+	bLamp_3_PLC := GVL.bLamp_3;
+	bLamp_4_PLC := GVL.bLamp_4;
+END_IF;
+
+CASE GVL.nProgramID OF
 	0 : Reset();
 	1 : V0_1();
 	2 : V0_2();
@@ -14,7 +42,17 @@ END_VAR
 END_CASE]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="50" Count="0" />
+      <LineId Id="76" Count="2" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="105" Count="0" />
+      <LineId Id="87" Count="0" />
+      <LineId Id="85" Count="0" />
+      <LineId Id="99" Count="2" />
+      <LineId Id="89" Count="0" />
+      <LineId Id="88" Count="0" />
+      <LineId Id="102" Count="2" />
+      <LineId Id="107" Count="1" />
+      <LineId Id="106" Count="0" />
       <LineId Id="63" Count="0" />
       <LineId Id="61" Count="1" />
       <LineId Id="64" Count="0" />

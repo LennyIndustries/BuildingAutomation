@@ -91,6 +91,11 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"502"</v>
+              <v n="TextDefault">"Enable PLC Output"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"374"</v>
               <v n="TextDefault">"Lamp 1"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -178,6 +183,11 @@
             <o>
               <v n="TextID">"19"</v>
               <v n="TextDefault">"test"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"173"</v>
+              <v n="TextDefault">"Toggles between PLC I/O or VISU I/O"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>

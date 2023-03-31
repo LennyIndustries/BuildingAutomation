@@ -7,6 +7,8 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[(*
+	Reactorvat
+	
 	De installatie zal pas werken als een hoofdschakelaar S01 AAN staat (maakcontact).
 	Als het niveau in het vat te hoog is, reageert detector S03.
 	Als de temperatuur boven een bepaalde waarde stijgt reageert thermostaat S04.
@@ -37,6 +39,7 @@ GVL.bLamp_3 := GVL.bSwitch_1 AND GVL.bSwitch_2 AND GVL.bSwitch_3 AND GVL.bSwitch
     </Implementation>
     <LineIds Name="V0_3">
       <LineId Id="5" Count="0" />
+      <LineId Id="37" Count="1" />
       <LineId Id="8" Count="6" />
       <LineId Id="7" Count="0" />
       <LineId Id="15" Count="2" />

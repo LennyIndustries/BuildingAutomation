@@ -45,6 +45,9 @@
     <Compile Include="POUs\V0_3.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\V0_4.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Visualization Manager.TcVMO">
       <SubType>Code</SubType>
     </Compile>
