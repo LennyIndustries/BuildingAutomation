@@ -39,6 +39,7 @@ CASE GVL.nProgramID OF
 	1 : V0_1();
 	2 : V0_2();
 	3 : V0_3();
+	4 : V0_4();
 END_CASE]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
@@ -56,6 +57,7 @@ END_CASE]]></ST>
       <LineId Id="63" Count="0" />
       <LineId Id="61" Count="1" />
       <LineId Id="64" Count="0" />
+      <LineId Id="123" Count="0" />
       <LineId Id="57" Count="0" />
     </LineIds>
   </POU>

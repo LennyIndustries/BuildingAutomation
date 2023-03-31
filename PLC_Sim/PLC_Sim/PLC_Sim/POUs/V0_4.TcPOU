@@ -3,6 +3,8 @@
   <POU Name="V0_4" Id="{089e5ee0-bf9c-4577-932c-a02e27c2214b}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM V0_4
 VAR
+	fbR_Trig : R_TRIG;
+	bTrigger : BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -17,6 +19,7 @@ END_VAR
 	Als de tank leeg gelopen is, stopt de pomp automatisch en opent de klep K1 bovenaan. De pomp kan niet ingeschakeld worden
 	zolang de tank gevuld wordt.
 	
+	(T = Toggle)
 	L1	l2	S1	P1	K1
 	0	0	x	x	1
 	1	0	x	x	1
@@ -25,6 +28,12 @@ END_VAR
 	x	x	0	0T	x
 	x	x	1	1T	x
 *)
+
+GVL.bLamp_1 := NOT GVL.bSwitch_1; // L2
+
+GVL.bLamp_2 R= (GVL.bButton_1 AND GVL.bLamp_2) OR (NOT GVL.bSwitch_1);
+GVL.bLamp_2 S= GVL.bButton_2 AND NOT GVL.bLamp_2 AND GVL.bSwitch_1;
+
 
 ]]></ST>
     </Implementation>
@@ -36,13 +45,20 @@ END_VAR
       <LineId Id="11" Count="0" />
       <LineId Id="9" Count="0" />
       <LineId Id="15" Count="0" />
-      <LineId Id="18" Count="1" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="19" Count="0" />
       <LineId Id="22" Count="0" />
       <LineId Id="20" Count="1" />
       <LineId Id="23" Count="2" />
       <LineId Id="6" Count="0" />
       <LineId Id="17" Count="0" />
-      <LineId Id="16" Count="0" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="29" Count="1" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="52" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>
