@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="V0_6" Id="{219d7529-7995-40d6-9887-014e34f4153a}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM V0_6
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*
+	Alarmbewaking
+	
+	In een vat wordt een proces bewaakt met 3 sensoren:
+    	Sensor1 meet de druk. TRUE bij een te hoge druk.
+    	Sensor2 meet de temperatuur. TRUE bij een te hoge temperatuur.
+    	Sensor3 meet het vloeistofniveau. FALSE bij een te laag niveau.
+
+	Er zijn 5 lampen die als indicator dienen voor het proces:
+    	Lamp1 gaat aan als de druk te hoog is.
+    	Lamp2 gaat aan als de temperatuur te hoog is.
+    	Lamp3 gaat aan als het niveau te laag is.
+    		Bovenstaande lampen gaan automatisch uit als er geen melding meer gegeven hoeft te worden.
+    	Lamp4 gaat aan als er zich twee alarmen gelijktijdig voordoen. Van zodra er geen twee alarmen meer zijn gaat deze lamp uit. Bij drie alarmen gaat deze lamp ook uit.
+    	Lamp5 gaat aan als er drie alarmen zijn. Deze lamp blijft aan, ook nadat er geen drie alarmen meer zijn. De lamp kan enkel uitgeschakeld worden met een extra drukknop.
+	
+	bSwitch_1 = Sensor 1 (S1)
+	bSwitch_2 = Sensor 2 (S2)
+	bSwitch_3 = Sensor 3 (S3)
+	bButton_1 = Drukknop (B1) -- Reset voor 3 alarmen
+	
+	bLamp_1 = Lemp 1 (L1)
+	bLamp_2 = Lamp 2 (L2)
+	bLamp_3 = Lamp 3 (L3)
+	bLamp_4 = Lamp 4 (L4)
+	bLamp_5 = Lamp 5 (L5)
+	
+	(T = Toggle)
+	S1	S2	S3	B1		L1	L2	L3	L4	L5
+	1	x	x	x		1	x	x	x	x
+	x	1	x	x		x	1	x	x	x
+	x	x	0	x		x	x	1	x	x
+	
+	0	1	1	x		x	x	x	1	x	-- Andere zijn uit
+	1	0	1	x		x	x	x	1	x
+	1	1	0	x		x	x	x	1	x
+	
+	1	1	1	x		x	x	x	x	1T
+	x	x	x	1		x	x	x	x	0T
+*)
+
+GVL.bLamp_1 := GVL.bSwitch_1;
+GVL.bLamp_2 := GVL.bSwitch_2;
+GVL.bLamp_3 := NOT GVL.bSwitch_3;
+
+GVL.bLamp_4 := ((GVL.bSwitch_1 AND GVL.bSwitch_2) OR (GVL.bSwitch_1 AND NOT GVL.bSwitch_3) OR (GVL.bSwitch_2 AND NOT GVL.bSwitch_3)) AND NOT (GVL.bSwitch_1 AND GVL.bSwitch_2 AND NOT GVL.bSwitch_3);
+
+GVL.bLamp_5 S= GVL.bSwitch_1 AND GVL.bSwitch_2 AND NOT GVL.bSwitch_3;
+GVL.bLamp_5 R= GVL.bLamp_5 AND GVL.bButton_1 AND NOT (GVL.bSwitch_1 AND GVL.bSwitch_2 AND NOT GVL.bSwitch_3);]]></ST>
+    </Implementation>
+    <LineIds Name="V0_6">
+      <LineId Id="6" Count="2" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="31" Count="4" />
+      <LineId Id="37" Count="4" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="45" Count="1" />
+      <LineId Id="57" Count="0" />
+      <LineId Id="47" Count="4" />
+      <LineId Id="17" Count="2" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="53" Count="3" />
+      <LineId Id="58" Count="5" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="66" Count="1" />
+      <LineId Id="69" Count="0" />
+      <LineId Id="68" Count="0" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="72" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

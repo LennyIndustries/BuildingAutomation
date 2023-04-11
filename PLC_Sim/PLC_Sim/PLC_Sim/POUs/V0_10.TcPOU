@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="V0_10" Id="{354420ea-f2ab-4e38-ad43-bba07bd01c98}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM V0_10
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*
+	Twee Pompen
+	
+	Een tank wordt gevuld met twee pompen. Om onderhoud te vermijden en de slijtage aan de pompen te spreiden zal men elke pomp om beurten apart laten werken. De installatie zal pas werken als een hoofdschakelaar AAN staat.
+
+	De pompbeweging wordt gestart ofwel:
+    	manueel door een startdrukknop
+    	automatisch door een niveauschakelaar (onderin de tank)
+
+	De pompbeweging wordt gestopt ofwel:
+    	manueel door een stopdrukknop
+    	automatisch door een niveauschakelaar (bovenaan de tank)
+*)]]></ST>
+    </Implementation>
+    <LineIds Name="V0_10">
+      <LineId Id="6" Count="2" />
+      <LineId Id="18" Count="2" />
+      <LineId Id="22" Count="3" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

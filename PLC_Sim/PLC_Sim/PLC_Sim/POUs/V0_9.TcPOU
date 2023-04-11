@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="V0_9" Id="{57a44160-f458-495b-ab77-ebb92634c4d2}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM V0_9
+VAR
+	fbRTrig : R_TRIG;
+	bTrigger : BOOL;
+	nState : SINT := 0;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*
+	Motor starten met één drukknop
+	
+	Schrijf een programma om een motor [ Relais voor MotorLinks en MotorRechts ] te starten en te stoppen met één drukknop. De installatie zal pas werken als een hoofdschakelaar AAN staat.
+		1e druk op de drukknop:	start links draaiend
+		2e druk op de drukknop:	stop
+		3e druk op de drukknop:	start rechts draaiend
+		4e druk op de drukknop:	stop
+	
+	bSwitch_1 = Hoofdschakelaar
+	bButton_1 = Drukknop
+	bLamp_1 = Links om
+	bLamp_2 = Rechts om
+*)
+
+fbRTrig(CLK := GVL.bButton_1, Q => bTrigger);
+]]></ST>
+    </Implementation>
+    <LineIds Name="V0_9">
+      <LineId Id="7" Count="2" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="21" Count="2" />
+      <LineId Id="10" Count="1" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="29" Count="1" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="28" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

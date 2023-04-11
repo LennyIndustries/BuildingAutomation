@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.40">
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.42">
 	<DataTypes>
 		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-002000000001}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..0] OF BIT</Name>
@@ -38,13 +38,14 @@
 		</System>
 		<Plc>
 			<Project GUID="{39595553-9FA8-4718-A8D1-CBC18A5AE4E6}" Name="PLC_Sim" PrjFilePath="PLC_Sim\PLC_Sim.plcproj" TmcFilePath="PLC_Sim\PLC_Sim.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC_Sim\PLC_Sim.tmc" TmcHash="{F8DCEEF1-86D9-835B-B16B-004DF983F784}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC_Sim\PLC_Sim.tmc" TmcHash="{4463A50E-7F16-E05D-E674-4BD504C14EA4}">
 					<Name>PLC_Sim Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
 							<Name>MAIN.bButton_1_PLC</Name>
+							<Comment><![CDATA[ Link to PLC (Optional)]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -400,7 +401,7 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				</Box>
 				<EtherCAT/>
 			</Device>
-			<Device Id="3" DevType="121">
+			<Device Id="3" Disabled="true" DevType="121">
 				<Name>Device 3 (NOV-DP-RAM)</Name>
 				<AddressInfo>
 					<Isa>

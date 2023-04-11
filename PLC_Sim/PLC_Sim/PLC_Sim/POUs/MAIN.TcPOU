@@ -5,6 +5,7 @@
 VAR
 	nPreviusProgramID : UINT := 0;
 	
+	// Link to PLC (Optional)
 	bButton_1_PLC AT %I* : BOOL;
 	bButton_2_PLC AT %I* : BOOL;
 	bButton_3_PLC AT %I* : BOOL;
@@ -17,11 +18,13 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[IF nPreviusProgramID <> GVL.nProgramID THEN
+      <ST><![CDATA[// Auto Reset VISU
+IF nPreviusProgramID <> GVL.nProgramID THEN
 	nPreviusProgramID := GVL.nProgramID;
 	Reset();
 END_IF
 
+// PLC Link
 IF GVL.bUsePLC THEN
 	GVL.bButton_1 := bButton_1_PLC;
 	GVL.bButton_2 := bButton_2_PLC;
@@ -34,17 +37,27 @@ IF GVL.bUsePLC THEN
 	bLamp_4_PLC := GVL.bLamp_4;
 END_IF;
 
+// Program List
 CASE GVL.nProgramID OF
 	0 : Reset();
 	1 : V0_1();
 	2 : V0_2();
 	3 : V0_3();
 	4 : V0_4();
+	5 : V0_5();
+	6 : V0_6();
+	7 : V0_7();
+	8 : V0_8();
+	9 : V0_9();
+	10 : V0_10();
+	11 : V0_11();
 END_CASE]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
+      <LineId Id="140" Count="0" />
       <LineId Id="76" Count="2" />
       <LineId Id="74" Count="0" />
+      <LineId Id="141" Count="0" />
       <LineId Id="105" Count="0" />
       <LineId Id="87" Count="0" />
       <LineId Id="85" Count="0" />
@@ -52,12 +65,16 @@ END_CASE]]></ST>
       <LineId Id="89" Count="0" />
       <LineId Id="88" Count="0" />
       <LineId Id="102" Count="2" />
-      <LineId Id="107" Count="1" />
+      <LineId Id="107" Count="0" />
+      <LineId Id="142" Count="0" />
+      <LineId Id="108" Count="0" />
       <LineId Id="106" Count="0" />
       <LineId Id="63" Count="0" />
       <LineId Id="61" Count="1" />
       <LineId Id="64" Count="0" />
       <LineId Id="123" Count="0" />
+      <LineId Id="139" Count="0" />
+      <LineId Id="143" Count="5" />
       <LineId Id="57" Count="0" />
     </LineIds>
   </POU>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="V0_8" Id="{a2eb5d76-f3b7-4ebc-a5db-20c9f3d4c026}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM V0_8
+VAR
+	fbOn : R_TRIG;
+	fbOff : R_TRIG;
+	
+	bOnTrigger : BOOL;
+	bOffTrigger : BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*
+	Teleruptorschakeling
+	
+	Programmeer de teleruptorschakeling in Structured Tekst. Zorg ook hier dat het mogelijk is om te bedienen met meerdere drukknoppen. Je zal merken dat dit een veel eenvoudiger programma zal zijn dan in LADDER. 
+
+	Voor de flank-detectie heb je een Function Block (FB) nodig. Met een rechtermuisklik in het programmeervenster (niet het declareer venster) kan de 'input assisant' openen en selecteer vervolgens > Function Blocks > Tc2_Standard > trigger > R_TRIG
+*)
+
+fbOn(CLK := GVL.bButton_1 OR GVL.bButton_2, Q => bOnTrigger);
+fbOff(CLK := GVL.bButton_3 OR GVL.bButton_4, Q => bOffTrigger);
+
+GVL.bLamp_1 S= bOnTrigger;
+GVL.bLamp_1 R= bOffTrigger;]]></ST>
+    </Implementation>
+    <LineIds Name="V0_8">
+      <LineId Id="6" Count="2" />
+      <LineId Id="48" Count="1" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="68" Count="0" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="66" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="52" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

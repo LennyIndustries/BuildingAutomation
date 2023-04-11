@@ -39,6 +39,12 @@
     <Compile Include="POUs\V0_1.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\V0_10.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\V0_11.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\V0_2.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -46,6 +52,21 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\V0_4.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\V0_5.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\V0_6.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\V0_7.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\V0_8.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\V0_9.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Visualization Manager.TcVMO">

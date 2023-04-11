@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="V0_11" Id="{0ef83db7-7b20-40ca-b878-e24c99698c75}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM V0_11
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*
+	Drie pompen
+	
+	Een tank wordt gevuld met drie pompen. De installatie zal pas werken als een hoofdschakelaar AAN staat. Om het debiet te regelen kunnen achtereenvolgens één, twee of alle drie
+	de pompen tegelijk worden ingeschakeld. Dit gebeurt met één enkele drukknop. Een andere drukknop zal op elk moment alle pompen uitschakelen.
+*)]]></ST>
+    </Implementation>
+    <LineIds Name="V0_11">
+      <LineId Id="6" Count="2" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

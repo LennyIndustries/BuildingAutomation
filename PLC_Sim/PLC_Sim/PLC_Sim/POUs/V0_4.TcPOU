@@ -3,8 +3,6 @@
   <POU Name="V0_4" Id="{089e5ee0-bf9c-4577-932c-a02e27c2214b}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM V0_4
 VAR
-	fbR_Trig : R_TRIG;
-	bTrigger : BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>

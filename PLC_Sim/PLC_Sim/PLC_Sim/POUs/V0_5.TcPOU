@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="V0_5" Id="{2b831544-7a60-4222-bc09-e5d3f07db049}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM V0_5
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*
+	Opslagvat met foutdetectie
+	
+	In de voorgaande oefening werden twee sensoren voor niveaudetectie gebruikt. Het is onmogelijk dat de sensor onderaan geen vloeistof detecteert (FALSE)
+	en de sensor bovenaan de tank wel (TRUE). De sensor onderaan moet dus defect zijn of er is een kabelbreuk. In dat geval mogen noch de klep, noch de pomp geactiveerd kunnen worden.
+	
+	bSwitch_1 = Hoog niveau (L1)
+	bSwitch_2 = Laag niveau (L2)
+	bLamp_1 = Klep (K1)
+	bLamp_2 = Pomp (P1)
+	bButton_1 = Pomp start (B1)
+	bButton_2 = Pomp stop (B2)
+	
+	(T = Toggle)
+	L1	l2	B1	B2	P1	K1
+	0	0	x	x	x	1	-- Sturing klep
+	1	0	x	x	x	0
+	1	1	x	x	x	0
+	0	1	x	x	x	1
+	
+	x	1	1	0	1	x	-- Sturing pomp
+	x	1	0	1	0	x
+	x	0	x	x	0	x	
+*)
+
+// Sturing klep
+GVL.bLamp_1 := (NOT GVL.bSwitch_1 AND NOT GVL.bSwitch_2) OR (NOT GVL.bSwitch_1 AND GVL.bSwitch_2);
+
+// Sturing pomp
+GVL.bLamp_2 S= GVL.bSwitch_2 AND GVL.bButton_1;
+GVL.bLamp_2 R= (GVL.bSwitch_2 AND GVL.bButton_2) OR (GVL.bSwitch_1 AND NOT GVL.bSwitch_2) OR NOT GVL.bSwitch_2;
+]]></ST>
+    </Implementation>
+    <LineIds Name="V0_5">
+      <LineId Id="6" Count="2" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="36" Count="4" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="17" Count="1" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="41" Count="5" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="47" Count="1" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
